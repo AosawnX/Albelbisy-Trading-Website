@@ -51,7 +51,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <Link href="/en" target="_blank" className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors group text-sm text-white/70 hover:text-white">
               <div className="flex items-center gap-3">
                 <Globe size={16} className="text-gray-400 group-hover:text-white transition-colors" />
-                <span>Goto Website</span>
+                <span>Go to Website</span>
               </div>
               <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>

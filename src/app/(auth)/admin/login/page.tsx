@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginAdmin } from "@/actions/admin-auth";
 import Link from "next/link";
+import Image from "next/image";
 import { Eye, EyeOff, Globe } from "lucide-react";
 
 export default function AdminLoginPage() {
@@ -28,14 +29,20 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex bg-[#1A1A2E]">
       {/* Left panel — branding */}
-      <div className="hidden lg:flex flex-col justify-between w-1/2 p-12 bg-gradient-to-br from-[#1A1A2E] via-[#16213e] to-[#1E3799] border-r border-white/10 relative overflow-hidden">
+      <div className="hidden lg:flex flex-col justify-between w-1/2 px-12 bg-gradient-to-br from-[#1A1A2E] via-[#16213e] to-[#1E3799] border-r border-white/10 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-20 right-10 w-48 h-48 bg-[#1E3799]/30 rounded-full blur-2xl pointer-events-none" />
 
-        <div className="relative flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#D4AF37]" />
-          <span className="text-white font-bold text-lg tracking-widest uppercase">Albelbisy</span>
+        <div className="relative">
+          <Image
+            src="/logonewest.png"
+            alt="Albelbisy Trading Logo"
+            width={180}
+            height={90}
+            className="object-contain w-40 md:w-48 h-auto brightness-[0] invert"
+            priority
+          />
         </div>
 
         <div className="relative">
@@ -49,7 +56,7 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        <p className="relative text-white/20 text-xs">
+        <p className="relative text-white/20 text-xs mb-10">
           © {new Date().getFullYear()} Albelbisy Trading Co.
         </p>
       </div>
@@ -62,18 +69,27 @@ export default function AdminLoginPage() {
           className="absolute top-8 right-8 md:top-12 md:right-12 text-white/40 hover:text-[#D4AF37] flex items-center gap-2 text-sm font-medium transition-colors"
         >
           <Globe size={18} /> 
-          <span className="">Goto Website</span>
+          <span className="">Go to Website</span>
         </Link>
 
         <div className="w-full max-w-md">
-          {/* Mobile logo */}
-          <div className="flex items-center gap-3 mb-10 lg:hidden">
-            <div className="w-6 h-6 rounded-full bg-[#D4AF37]" />
-            <span className="text-white font-bold tracking-widest uppercase">Albelbisy Admin</span>
-          </div>
+          {/* Mobile Header (Centered on mobile, left-aligned on larger if we ever showed it) */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left mb-10">
+            {/* Mobile logo */}
+            <div className="mb-6 lg:hidden">
+              <Image
+                src="/logonewest.png"
+                alt="Albelbisy Trading Logo"
+                width={220}
+                height={110}
+                className="object-contain w-50 h-auto brightness-[0] invert"
+                priority
+              />
+            </div>
 
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome back</h1>
-          <p className="text-white/50 mb-10 text-sm">Sign in to access the admin dashboard.</p>
+            <h1 className="text-3xl font-bold text-white mb-2">Welcome back</h1>
+            <p className="text-white/50 text-sm">Sign in to access the admin dashboard.</p>
+          </div>
 
           <form action={handleSubmit} className="space-y-5">
             <div>

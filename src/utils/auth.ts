@@ -5,11 +5,11 @@ const secretKey = process.env.ADMIN_PASSWORD;
 const encodedKey = new TextEncoder().encode(secretKey || "fallback_secret_dont_use");
 
 export async function createSession() {
-  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
+  const expiresAt = new Date(Date.now() + 6 * 60 * 60 * 1000); // 6 hours
   const session = await new SignJWT({ admin: true })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("7d")
+    .setExpirationTime("6h")
     .sign(encodedKey);
 
   cookies().set("admin_session", session, {

@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function BrandsMarquee({ title = "Top Brands We Supply" }: { title?: string }) {
   const brands = [
-    { name: "BOSCH", img: "/brands/BOSCH.jpg" },
-    { name: "DEWALT", img: "/brands/DEWALT DRILLS.png" },
-    { name: "DORMER", img: "/brands/DORMER.jpg" },
-    { name: "IT DRILL", img: "/brands/IT DRILL.png" },
-    { name: "MAKITA", img: "/brands/MAKITA.png" },
-    { name: "MITUTOYO", img: "/brands/MITUTOYO JAPAN.png" },
-    { name: "PAFANA", img: "/brands/PAFANA TOOLS POLAND.png" },
-    { name: "RAIZO", img: "/brands/RAIZO.jpg" },
-    { name: "Unique TOOLS", img: "/brands/Unique TOOLS INDIA.jpeg" },
-    { name: "SKC", img: "/brands/skc brand handtaps.jpg" },
+    { name: "BOSCH", img: "/brands/boschh.jpg" },
+    { name: "DEWALT", img: "/brands/dewalt_drills.png" },
+    { name: "DORMER", img: "/brands/dormerr.jpg" },
+    { name: "IT DRILL", img: "/brands/it_drill.png" },
+    { name: "MAKITA", img: "/brands/makitaa.png" },
+    { name: "MITUTOYO", img: "/brands/mitutoyo_japan.png" },
+    { name: "PAFANA", img: "/brands/pafana_tools_poland.png" },
+    { name: "RAIZO", img: "/brands/raizoo.jpg" },
+    { name: "Unique TOOLS", img: "/brands/unique_tools_india.jpeg" },
+    { name: "SKC", img: "/brands/skc_brand_handtaps.jpg" },
   ];
 
   return (

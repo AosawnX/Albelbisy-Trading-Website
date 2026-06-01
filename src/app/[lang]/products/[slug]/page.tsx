@@ -1,4 +1,4 @@
-import { getSupabaseAdmin } from "@/utils/supabase";
+import { getSupabaseClient } from "@/utils/supabase";
 import { getDictionary, Locale } from "@/dictionaries";
 import { categories } from "@/data/products";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 
 export default async function ProductPage({ params }: { params: { lang: string, slug: string } }) {
   const dict = await getDictionary(params.lang as Locale);
-  const supabase = getSupabaseAdmin();
+  const supabase = getSupabaseClient(); // Anon key — public read, RLS enforced
   
   const { data: product } = await supabase
     .from("products")
@@ -29,12 +29,15 @@ export default async function ProductPage({ params }: { params: { lang: string, 
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <Link href={`/${params.lang}/catalogue`} className="inline-flex items-center gap-2 text-muted hover:text-dark transition-colors mb-8">
+        <Link 
+          href={`/${params.lang}/catalogue`} 
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors mb-8 relative z-10 cursor-pointer font-medium"
+        >
           <ArrowLeft size={16} className={params.lang === 'ar' ? 'rotate-180' : ''} /> 
           {params.lang === 'ar' ? "العودة للكتالوج" : "Back to Catalogue"}
         </Link>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden relative z-0">
           <div className="grid grid-cols-1 md:grid-cols-2">
             
             {/* Product Image */}

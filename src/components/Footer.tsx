@@ -85,11 +85,13 @@ export default function Footer({ dict, lang }: { dict: any, lang: string }) {
           </div>
         </div>
 
-        <div className="border-t border-gold/30 pt-8 flex justify-between items-center text-sm text-muted">
-          <p>&copy; {new Date().getFullYear()} {dict.rights}</p>
-          <Link href="/admin/login" className="text-gray-600 hover:text-white transition-colors opacity-50 hover:opacity-100" title="Admin Login">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          </Link>
+        <div className="border-t border-gold/30 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-sm text-muted gap-4">
+          <div className="flex items-center gap-3">
+            <p>&copy; {new Date().getFullYear()} {dict.rights}</p>
+            <Link href="/admin/login" className="text-gray-600 hover:text-white transition-colors opacity-50 hover:opacity-100" title="Admin Login">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

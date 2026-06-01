@@ -22,7 +22,7 @@ export default function ClientsMarquee({ title = "Trusted By Industry Leaders" }
   ];
 
   return (
-    <section className="py-12 bg-light border-y border-gold/20 overflow-hidden">
+    <section className="py-12 bg-white border-y border-gold/20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <h3 className="text-center text-muted uppercase tracking-widest text-sm font-semibold">
           {title}
@@ -36,7 +36,7 @@ export default function ClientsMarquee({ title = "Trusted By Industry Leaders" }
               key={idx} 
               className="mx-8 flex flex-col items-center justify-center transition-transform hover:scale-105 duration-300"
             >
-              <div className="w-32 h-20 bg-white rounded-xl shadow-sm relative overflow-hidden flex items-center justify-center">
+              <div className="w-32 h-20 bg-transparent rounded-xl relative overflow-hidden flex items-center justify-center">
                 <Image 
                   src={client.img} 
                   alt={client.name} 

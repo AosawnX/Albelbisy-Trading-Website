@@ -31,7 +31,7 @@ export default function BrandsMarquee({ title = "Top Brands We Supply" }: { titl
               key={idx} 
               className="mx-8 flex flex-col items-center justify-center transition-transform hover:scale-105 duration-300"
             >
-              <div className="w-32 h-20 bg-white rounded-xl shadow-sm border border-gray-50 relative overflow-hidden flex items-center justify-center">
+              <div className="w-32 h-20 bg-transparent rounded-xl relative overflow-hidden flex items-center justify-center">
                 <Image 
                   src={brand.img} 
                   alt={brand.name} 

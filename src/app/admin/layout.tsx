@@ -1,8 +1,8 @@
 import { getSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { LogOut, Package, LayoutDashboard, ChevronRight } from "lucide-react";
-import { logoutAdmin } from "@/actions/admin-auth";
+import { ChevronRight, Package, LayoutDashboard } from "lucide-react";
+import LogoutButton from "@/components/admin/LogoutButton";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getSession();
@@ -50,12 +50,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
         {/* Logout */}
         <div className="p-4 border-t border-white/5">
-          <form action={logoutAdmin}>
-            <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-sm text-white/40 hover:text-red-400 hover:bg-red-500/10 transition-colors text-left">
-              <LogOut size={16} />
-              <span>Logout</span>
-            </button>
-          </form>
+          <LogoutButton />
         </div>
       </aside>
 

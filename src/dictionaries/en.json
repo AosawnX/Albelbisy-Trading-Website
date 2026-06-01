@@ -1,0 +1,159 @@
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "requestQuote": "Request a Quote"
+  },
+  "footer": {
+    "companyName": "Omar Khattab AlBelbisy Trading Est.",
+    "description": "One of the leading institutions in industrial equipment trading in Saudi Arabia.",
+    "cr": "CR: 1010040351",
+    "vat": "VAT: 311295543800003",
+    "quickLinks": "Quick Links",
+    "branches": "Our Branches",
+    "riyadhBranch": "Riyadh Branch",
+    "buraydahBranch": "Buraydah Branch",
+    "riyadhAddress": "Al Kharj Rd, Al Sina'iyah, Riyadh 12843",
+    "buraydahAddress": "Al Arbaeen An Naziyah, Buraydah 52359",
+    "rights": "Albelbisy Trading. All rights reserved."
+  },
+  "contactSidebar": {
+    "title": "Get in Touch",
+    "chatOnWhatsapp": "Chat on WhatsApp",
+    "quickResponse": "Quick response guaranteed",
+    "email": "Email",
+    "mainBranchRiyadh": "Main Branch — Riyadh",
+    "buraydahBranch": "Buraydah Branch",
+    "riyadhHours": "Sat – Thu: 8 AM – 5 PM",
+    "buraydahHours": "Sat – Thu: 8 AM – 12 PM & 4 PM – 8 PM",
+    "fridayClosed": "Friday Closed"
+  },
+  "hero": {
+    "titleLine1": "Built by the industry,",
+    "titleLine2": "for the industry.",
+    "features": {
+      "premiumMetals": {
+        "title": "Premium Metals",
+        "description": "Our extensive inventory encompasses a diverse selection of metals including brass and copper bars, and sheets."
+      },
+      "engineeringPlastics": {
+        "title": "Engineering Plastics",
+        "description": "Providing high-quality engineering plastics such as PA6 and PTFE imported directly from Germany."
+      },
+      "precisionTools": {
+        "title": "Precision Tools",
+        "description": "A wide array of hand taps, dies, lathe parts, and specialized tools imported from Poland."
+      },
+      "cuttingGrinding": {
+        "title": "Cutting & Grinding",
+        "description": "Premium cutting discs, CZ brand grinding wheels, and durable hacksaw blades for heavy duty industrial use."
+      }
+    },
+    "readMore": "Read More"
+  },
+  "marquee": {
+    "clients": "Our Esteemed Clients & Partners",
+    "brands": "Top Brands We Supply"
+  },
+  "ceoMessage": {
+    "subtitle": "A Message from Our CEO",
+    "name": "Omar Albelbisy",
+    "content": "\"Soon after the Kingdom's industrial revolution started, our establishment began working in the field of industrial equipment trade to play an important role in the industrial development in Saudi Arabia. Since our founding, we have been committed to delivering unparalleled quality and service to our partners across the Kingdom of Saudi Arabia, ensuring that your business has the reliable resources it needs for factories, lathes, and maintenance workshops.\"",
+    "readMore": "Read More"
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "products": "Products in Catalogue",
+    "clients": "Satisfied Clients",
+    "branches": "Branches Kingdom-wide"
+  },
+  "productGrid": {
+    "title": "Our Product Catalogue",
+    "viewAll": "View All Products"
+  },
+  "query": {
+    "title": "Send Us a Query",
+    "description": "Have a question or need a custom quote? Fill out the form below and our team will get back to you promptly."
+  },
+  "about": {
+    "title": "About Us",
+    "home": "Home",
+    "whoWeAre": "Who We Are",
+    "whoWeAreP1": "Omar Khattab AlBelbisy Trading Est. is one of the leading institutions in the field of industrial equipment trading in the Kingdom of Saudi Arabia. Soon after the Kingdom's industrial revolution started, our establishment began working in this field to play an important role in the industrial development of the Kingdom.",
+    "whoWeAreP2": "Taking into account the requirements of the industrial market for factories, lathes, and equipment for forming and maintenance workshops, our extensive inventory encompasses a diverse selection of metals including brass and copper bars, as well as sheets. We also provide engineering plastics such as PA6 and PTFE imported from Germany. Additionally, we offer a wide array of hand taps, dies, lathe parts, and tools imported from Poland, available in various sizes to meet your specific needs.",
+    "coreValuesTitle": "Our Core Values",
+    "values": {
+      "quality": {
+        "title": "Uncompromising Quality",
+        "desc": "We rigorously vet all our manufacturing partners to ensure every product meets global standards of excellence."
+      },
+      "partnerships": {
+        "title": "Trusted Partnerships",
+        "desc": "We build long-term relationships based on transparency, reliability, and mutual growth with our clients."
+      },
+      "growth": {
+        "title": "Sustainable Growth",
+        "desc": "Our vision focuses on sustainable industrial development, providing solutions that stand the test of time."
+      }
+    },
+    "quote": "Our mission is not just to supply equipment, but to empower industries across the Kingdom of Saudi Arabia to build a better, more efficient world.",
+    "journeyTitle": "Our Journey",
+    "milestones": [
+      { "year": "1980", "title": "Foundation", "desc": "Started as a small local distributor for industrial tools." },
+      { "year": "1995", "title": "Regional Expansion", "desc": "Expanded our catalogue to include raw materials and machinery." },
+      { "year": "2000", "title": "Global Network", "desc": "Established partnerships with top-tier manufacturers across Europe and Asia." },
+      { "year": "2018", "title": "Digital Transformation", "desc": "Launched our modern digital catalogue, reaching clients worldwide." }
+    ]
+  },
+  "catalogue": {
+    "title": "Product Catalogue",
+    "home": "Home",
+    "filters": "Filters",
+    "searchProducts": "Search Products",
+    "searchPlaceholder": "Search...",
+    "categories": "Categories",
+    "allCategories": "All Categories",
+    "clearAllFilters": "Clear All Filters",
+    "noProductsFound": "No products found",
+    "noProductsDesc": "We couldn't find any products matching your current filters.",
+    "clearFiltersBtn": "Clear Filters"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "home": "Home",
+    "getInTouch": "Get in Touch",
+    "mainBranch": "Main Branch (Riyadh)",
+    "buraydahBranch": "Buraydah Branch",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "satToThu": "Sat to Thu",
+    "fridayClosed": "Friday Closed",
+    "riyadhHours": "8:00 AM – 5:00 PM",
+    "buraydahHours": "8:00 AM – 12:00 PM & 4:00 PM – 8:00 PM",
+    "addressRiyadh": "Al Kharj Rd, Al Sina'iyah, Riyadh 12843",
+    "addressBuraydah": "Al Arbaeen An Naziyah, Buraydah 52359"
+  },
+  "queryForm": {
+    "name": "Full Name",
+    "namePlaceholder": "John Doe",
+    "email": "Email Address",
+    "emailPlaceholder": "john@example.com",
+    "company": "Company Name",
+    "companyPlaceholder": "Acme Corp",
+    "phone": "Phone Number",
+    "phonePlaceholder": "50 123 4567",
+    "interest": "Product of Interest",
+    "selectCategory": "Select a category",
+    "other": "Other",
+    "message": "Message / Specifications",
+    "messagePlaceholder": "Tell us about your requirements...",
+    "submit": "Send Enquiry →",
+    "sending": "Sending...",
+    "successTitle": "Thank you!",
+    "successMsg": "We'll be in touch within 24 hours.",
+    "errorMsg": "Something went wrong. Please try again or WhatsApp us directly.",
+    "otherCountry": "Other (Custom)"
+  }
+}

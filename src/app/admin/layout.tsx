@@ -1,7 +1,7 @@
 import { getSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, Package, LayoutDashboard } from "lucide-react";
+import { ChevronRight, Package, LayoutDashboard, Globe } from "lucide-react";
 import LogoutButton from "@/components/admin/LogoutButton";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -46,6 +46,16 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </div>
             <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
+
+          <div className="pt-4 mt-2 border-t border-white/5">
+            <Link href="/en" target="_blank" className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors group text-sm text-white/70 hover:text-white">
+              <div className="flex items-center gap-3">
+                <Globe size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+                <span>Goto Website</span>
+              </div>
+              <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
+          </div>
         </nav>
 
         {/* Logout */}

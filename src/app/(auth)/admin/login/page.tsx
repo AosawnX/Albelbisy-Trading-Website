@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginAdmin } from "@/actions/admin-auth";
-import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
+import { Eye, EyeOff, Globe } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -54,7 +55,16 @@ export default function AdminLoginPage() {
       </div>
 
       {/* Right panel — form */}
-      <div className="flex-1 flex items-center justify-center p-6">
+      <div className="flex-1 flex items-center justify-center p-6 relative">
+        {/* Go to Home link */}
+        <Link 
+          href="/en" 
+          className="absolute top-8 right-8 md:top-12 md:right-12 text-white/40 hover:text-[#D4AF37] flex items-center gap-2 text-sm font-medium transition-colors"
+        >
+          <Globe size={18} /> 
+          <span className="">Goto Website</span>
+        </Link>
+
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="flex items-center gap-3 mb-10 lg:hidden">
@@ -96,7 +106,7 @@ export default function AdminLoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-black/40 hover:text-yellow-400 transition-colors"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>

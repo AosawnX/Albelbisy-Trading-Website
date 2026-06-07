@@ -41,17 +41,18 @@ export default async function ProductPage({ params }: { params: { lang: string, 
           <div className="grid grid-cols-1 md:grid-cols-2">
             
             {/* Product Image */}
-            <div className="bg-gray-100 relative aspect-square md:aspect-auto">
+            <div className="bg-gray-100 flex items-center justify-center p-6 md:p-12">
               {product.image_url ? (
                 <Image 
                   src={product.image_url} 
                   alt={name}
-                  fill
-                  className="object-cover"
+                  width={800}
+                  height={800}
+                  className="w-full h-auto max-h-[600px] object-contain rounded-lg"
                   priority
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                <div className="flex items-center justify-center text-gray-400 py-32">
                   <Package size={64} />
                 </div>
               )}

@@ -121,7 +121,7 @@ export default function ContactSidebar({ dict }: { dict: any }) {
                     <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <MapPin size={16} className="text-accent" />
                     </div>
-                    <span className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: dict.addressRiyadh?.replace('،', '،<br />').replace(',', ',<br />') || ''}}></span>
+                    <span className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: dict.riyadhAddress?.replace('،', '،<br />').replace(',', ',<br />') || ''}}></span>
                   </a>
                   <a
                     href={`tel:${riyadhPhone}`}
@@ -157,7 +157,7 @@ export default function ContactSidebar({ dict }: { dict: any }) {
                     <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <MapPin size={16} className="text-accent" />
                     </div>
-                    <span className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: dict.addressBuraydah?.replace('،', '،<br />').replace(',', ',<br />') || ''}}></span>
+                    <span className="text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: dict.buraydahAddress?.replace('،', '،<br />').replace(',', ',<br />') || ''}}></span>
                   </a>
                   <a
                     href={`tel:${buraydahPhone}`}

@@ -28,7 +28,9 @@
     "buraydahBranch": "Buraydah Branch",
     "riyadhHours": "Sat – Thu: 8 AM – 5 PM",
     "buraydahHours": "Sat – Thu: 8 AM – 12 PM & 4 PM – 8 PM",
-    "fridayClosed": "Friday Closed"
+    "fridayClosed": "Friday Closed",
+    "riyadhAddress": "Al Kharj Rd, Al Sina'iyah, Riyadh 12843",
+    "buraydahAddress": "Al Arbaeen An Naziyah, Buraydah 52359"
   },
   "hero": {
     "titleLine1": "Built by the industry,",

@@ -55,6 +55,10 @@ export async function addProduct(formData: FormData) {
   
   // ensure unique slug
   let slug = generateSlug(name_en);
+  const { data: existing } = await supabase.from("products").select("id").eq("slug", slug).maybeSingle();
+  if (existing) {
+    slug = `${slug}-${Math.random().toString(36).substring(2, 6)}`;
+  }
   
   const { error } = await supabase.from("products").insert({
     name_en,
@@ -103,13 +107,21 @@ export async function updateProduct(id: string, formData: FormData) {
   const description_ar = formData.get("description_ar") as string;
   const imageFile  = formData.get("image")      as File;
 
+  const supabase = getSupabaseAdmin();
+
+  let slug = generateSlug(name_en);
+  const { data: existing } = await supabase.from("products").select("id").eq("slug", slug).maybeSingle();
+  if (existing && existing.id !== id) {
+    slug = `${slug}-${Math.random().toString(36).substring(2, 6)}`;
+  }
+
   const updates: Record<string, unknown> = {
     name_en,
     name_ar,
     category_id,
     description_en,
     description_ar,
-    slug: generateSlug(name_en),
+    slug,
   };
 
   // Only upload a new image if the admin chose one
@@ -117,7 +129,6 @@ export async function updateProduct(id: string, formData: FormData) {
     updates.image_url = await uploadImage(imageFile);
   }
 
-  const supabase = getSupabaseAdmin();
   const { error } = await supabase
     .from("products")
     .update(updates)

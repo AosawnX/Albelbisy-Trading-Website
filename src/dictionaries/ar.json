@@ -120,7 +120,14 @@
     "clearAllFilters": "مسح جميع عوامل التصفية",
     "noProductsFound": "لم يتم العثور على منتجات",
     "noProductsDesc": "لم نتمكن من العثور على أي منتجات تطابق عوامل التصفية الحالية.",
-    "clearFiltersBtn": "مسح عوامل التصفية"
+    "clearFiltersBtn": "مسح الفلاتر",
+    "viewPerPage": "عرض في الصفحة:",
+    "showing": "عرض",
+    "of": "من",
+    "products": "منتجات",
+    "previous": "السابق",
+    "next": "التالي",
+    "all": "الكل"
   },
   "contact": {
     "title": "اتصل بنا",

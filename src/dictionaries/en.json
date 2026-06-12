@@ -120,7 +120,14 @@
     "clearAllFilters": "Clear All Filters",
     "noProductsFound": "No products found",
     "noProductsDesc": "We couldn't find any products matching your current filters.",
-    "clearFiltersBtn": "Clear Filters"
+    "clearFiltersBtn": "Clear Filters",
+    "viewPerPage": "View per page:",
+    "showing": "Showing",
+    "of": "of",
+    "products": "products",
+    "previous": "Previous",
+    "next": "Next",
+    "all": "All"
   },
   "contact": {
     "title": "Contact Us",

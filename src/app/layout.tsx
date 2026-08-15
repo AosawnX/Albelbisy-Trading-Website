@@ -8,7 +8,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   title: "Albelbisy Trading",
   description: "Premium industrial tools and materials.",
-  icons: { icon: "/faviconn.png" },
+  icons: { icon: "/favicon.ico" },
 };
 
 // True root layout — must contain <html> and <body>.

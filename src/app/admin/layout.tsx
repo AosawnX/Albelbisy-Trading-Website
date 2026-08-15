@@ -1,7 +1,7 @@
 import { getSession } from "@/utils/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, Package, LayoutDashboard, Globe } from "lucide-react";
+import { ChevronRight, Package, LayoutDashboard, Globe, Tags } from "lucide-react";
 import LogoutButton from "@/components/admin/LogoutButton";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -43,6 +43,14 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <div className="flex items-center gap-3">
               <Package size={16} className="text-[#D4AF37]" />
               <span>Products</span>
+            </div>
+            <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Link>
+
+          <Link href="/admin/categories" className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors group text-sm text-white/70 hover:text-white">
+            <div className="flex items-center gap-3">
+              <Tags size={16} className="text-[#D4AF37]" />
+              <span>Categories</span>
             </div>
             <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>

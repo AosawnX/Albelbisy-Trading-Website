@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
-import { categories } from "@/data/products";
+import type { Category } from "@/data/products";
 import { motion, AnimatePresence } from "framer-motion";
 
 const mainstreamCountries = [
@@ -17,7 +17,7 @@ const mainstreamCountries = [
   { name: "United States", code: "+1", iso: "us" },
 ];
 
-export default function QueryForm({ dict }: { dict?: any }) {
+export default function QueryForm({ dict, categories, lang = 'en' }: { dict?: any, categories: Category[], lang?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -305,23 +305,25 @@ export default function QueryForm({ dict }: { dict?: any }) {
             transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="absolute top-full start-0 end-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-2xl z-50 max-h-64 overflow-y-auto origin-top"
           >
-            {categories.map((c) => (
+            {categories.map((c) => {
+              const displayName = lang === 'ar' && c.name_ar ? c.name_ar : c.name_en;
+              return (
               <button
-                key={c.id}
+                key={c.key}
                 type="button"
                 onClick={() => {
-                  setSelectedInterest(c.name);
+                  setSelectedInterest(displayName);
                   setIsInterestOpen(false);
                 }}
                 className={`w-full px-4 py-3 text-start text-sm transition-colors ${
-                  selectedInterest === c.name 
+                  selectedInterest === displayName 
                     ? "bg-gray-50 text-[#1B2D6B] font-semibold" 
                     : "text-dark hover:bg-gray-50"
                 }`}
               >
-                {c.name}
+                {displayName}
               </button>
-            ))}
+            )})}
             <button
               type="button"
               onClick={() => {

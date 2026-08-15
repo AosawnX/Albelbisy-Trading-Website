@@ -3,14 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Plus, Trash2, Pencil, Package } from "lucide-react";
 import { deleteProduct } from "@/actions/products";
-import { categories } from "@/data/products";
 
 export default async function AdminProductsPage() {
   const supabase = getSupabaseAdmin();
-  const { data: products, error } = await supabase
-    .from("products")
-    .select("*")
-    .order("created_at", { ascending: false });
+  const [{ data: products, error }, { data: categories }] = await Promise.all([
+    supabase.from("products").select("*").order("created_at", { ascending: false }),
+    supabase.from("categories").select("*"),
+  ]);
 
   return (
     <div>
@@ -50,7 +49,7 @@ export default async function AdminProductsPage() {
             </thead>
             <tbody className="divide-y divide-gray-50">
               {products?.map((product) => {
-                const category = categories.find((c) => c.id === product.category_id);
+                const category = (categories ?? []).find((c) => c.key === product.category_id);
                 return (
                   <tr key={product.id} className="hover:bg-gray-50/70 transition-colors group">
                     <td className="px-6 py-4">
@@ -72,7 +71,7 @@ export default async function AdminProductsPage() {
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#1E3799]/8 text-[#1E3799] text-xs font-medium">
-                        {category?.name ?? product.category_id}
+                        {category?.name_en ?? product.category_id}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-xs text-gray-400">

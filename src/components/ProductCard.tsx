@@ -6,6 +6,10 @@ import type { Product, Category } from "@/data/products";
 import Link from "next/link";
 
 export default function ProductCard({ product, category, lang = 'en' }: { product: Product & { slug?: string }, category?: Category, lang?: string }) {
+  const categoryName = category
+    ? (lang === 'ar' && category.name_ar ? category.name_ar : category.name_en)
+    : null;
+
   return (
     <Link href={`/${lang}/products/${product.slug || product.id}`} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full group">
       <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center overflow-hidden">
@@ -23,10 +27,10 @@ export default function ProductCard({ product, category, lang = 'en' }: { produc
       </div>
       
       <div className="p-6 flex flex-col flex-grow">
-        {category && (
+        {categoryName && (
           <div className="mb-3">
             <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full uppercase tracking-wider">
-              {category.name}
+              {categoryName}
             </span>
           </div>
         )}
@@ -40,3 +44,4 @@ export default function ProductCard({ product, category, lang = 'en' }: { produc
     </Link>
   );
 }
+

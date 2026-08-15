@@ -1,9 +1,12 @@
 import { addProduct } from "@/actions/products";
-import { categories } from "@/data/products";
+import { getSupabaseAdmin } from "@/utils/supabase";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function NewProductPage() {
+export default async function NewProductPage() {
+  const supabase = getSupabaseAdmin();
+  const { data: categories } = await supabase.from("categories").select("*").order("created_at", { ascending: true });
+
   return (
     <div className="max-w-4xl mx-auto">
       {/* Header */}
@@ -58,8 +61,8 @@ export default function NewProductPage() {
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1E3799]/30 focus:border-[#1E3799] transition-all outline-none text-sm bg-white"
             >
               <option value="">Select a category...</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>{c.name}</option>
+              {(categories ?? []).map((c) => (
+                <option key={c.key} value={c.key}>{c.name_en}</option>
               ))}
             </select>
           </div>

@@ -6,9 +6,15 @@ import ClientsMarquee from "@/components/ClientsMarquee";
 import BrandsMarquee from "@/components/BrandsMarquee";
 import QueryForm from "@/components/QueryForm";
 import { getDictionary, Locale } from "@/dictionaries";
+import { getSupabaseClient } from "@/utils/supabase";
 
 export default async function Home({ params }: { params: { lang: string } }) {
   const dict = await getDictionary(params.lang as Locale);
+  const supabase = getSupabaseClient();
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("*")
+    .order("created_at", { ascending: true });
 
   return (
     <>
@@ -17,7 +23,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <CEOMessage dict={dict.ceoMessage} lang={params.lang} />
       <StatsCounter dict={dict.stats} />
       <BrandsMarquee title={dict.marquee.brands} />
-      <ProductGrid dict={dict.productGrid} lang={params.lang} />
+      <ProductGrid dict={dict.productGrid} lang={params.lang} categories={categories || []} />
       
       <section className="py-24 bg-dark text-white relative overflow-hidden" id="query">
         <div className="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
@@ -31,10 +37,11 @@ export default async function Home({ params }: { params: { lang: string } }) {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <QueryForm dict={dict.queryForm} />
+            <QueryForm dict={dict.queryForm} categories={categories || []} lang={params.lang} />
           </div>
         </div>
       </section>
     </>
   );
 }
+

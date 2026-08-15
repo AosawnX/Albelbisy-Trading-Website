@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import CategoryCard from "./CategoryCard";
-import { categories } from "@/data/products";
+import type { Category } from "@/data/products";
+import { CATEGORY_ICONS } from "@/data/products";
 
-export default function ProductGrid({ dict, lang }: { dict: any, lang: string }) {
+export default function ProductGrid({ dict, lang, categories }: { dict: any; lang: string; categories: Category[] }) {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -20,6 +21,14 @@ export default function ProductGrid({ dict, lang }: { dict: any, lang: string })
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
+
+  // Show first 6 categories that have a hardcoded icon; fall back to first 6 overall
+  const displayCategories = categories
+    .filter((c) => CATEGORY_ICONS[c.key])
+    .slice(0, 6);
+
+  const fallback = categories.slice(0, 6);
+  const gridCategories = displayCategories.length > 0 ? displayCategories : fallback;
 
   return (
     <section className="py-20 bg-white">
@@ -38,9 +47,13 @@ export default function ProductGrid({ dict, lang }: { dict: any, lang: string })
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {categories.slice(0, 6).map((category) => (
-            <motion.div key={category.id} variants={itemVariants}>
-              <CategoryCard category={category} lang={lang} />
+          {gridCategories.map((category) => (
+            <motion.div key={category.key} variants={itemVariants}>
+              <CategoryCard
+                category={category}
+                lang={lang}
+                imageUrl={CATEGORY_ICONS[category.key]}
+              />
             </motion.div>
           ))}
         </motion.div>

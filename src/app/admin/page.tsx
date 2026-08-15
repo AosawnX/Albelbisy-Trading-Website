@@ -4,15 +4,12 @@ import { Package, Plus, ArrowRight } from "lucide-react";
 
 export default async function AdminDashboardPage() {
   const supabase = getSupabaseAdmin();
-  const { count } = await supabase
-    .from("products")
-    .select("*", { count: "exact", head: true });
-
-  const { data: recent } = await supabase
-    .from("products")
-    .select("id, name_en, category_id, created_at")
-    .order("created_at", { ascending: false })
-    .limit(5);
+  const [{ count: productCount }, { count: categoryCount }, { data: recent }, { data: categories }] = await Promise.all([
+    supabase.from("products").select("*", { count: "exact", head: true }),
+    supabase.from("categories").select("*", { count: "exact", head: true }),
+    supabase.from("products").select("id, name_en, category_id, created_at").order("created_at", { ascending: false }).limit(5),
+    supabase.from("categories").select("key, name_en"),
+  ]);
 
   return (
     <div>
@@ -29,17 +26,17 @@ export default async function AdminDashboardPage() {
             <Package size={22} className="text-[#1E3799]" />
           </div>
           <div>
-            <p className="text-3xl font-bold text-gray-900">{count ?? 0}</p>
+            <p className="text-3xl font-bold text-gray-900">{productCount ?? 0}</p>
             <p className="text-xs text-gray-400 uppercase tracking-wider mt-1">Total Products</p>
           </div>
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex items-center gap-5">
           <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0">
-            <span className="text-2xl font-bold text-[#D4AF37]">9</span>
+            <span className="text-2xl font-bold text-[#D4AF37]">{categoryCount ?? 0}</span>
           </div>
           <div>
-            <p className="text-3xl font-bold text-gray-900">9</p>
+            <p className="text-3xl font-bold text-gray-900">{categoryCount ?? 0}</p>
             <p className="text-xs text-gray-400 uppercase tracking-wider mt-1">Categories</p>
           </div>
         </div>
@@ -75,7 +72,9 @@ export default async function AdminDashboardPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-gray-800 truncate">{p.name_en}</p>
-                <p className="text-xs text-gray-400">Category {p.category_id}</p>
+                <p className="text-xs text-gray-400">
+                  {(categories ?? []).find(c => c.key === p.category_id)?.name_en ?? p.category_id}
+                </p>
               </div>
               <p className="text-xs text-gray-300 flex-shrink-0">
                 {new Date(p.created_at).toLocaleDateString()}

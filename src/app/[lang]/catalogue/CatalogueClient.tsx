@@ -4,10 +4,15 @@ import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Search, X, SlidersHorizontal, PackageX, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { products, categories } from "@/data/products";
+import type { Category } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 
-function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: string, initialProducts: any[] }) {
+function CatalogueContent({ dict, lang, initialProducts, categories }: {
+  dict: any;
+  lang: string;
+  initialProducts: any[];
+  categories: Category[];
+}) {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category");
   
@@ -24,9 +29,9 @@ function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: st
     setCurrentPage(1);
   }, [searchQuery]);
 
-  const handleCategoryChange = (slug: string | null) => {
+  const handleCategoryChange = (key: string | null) => {
     // We update the category instantly
-    setSelectedCategory(slug);
+    setSelectedCategory(key);
     setCurrentPage(1);
     
     // We use an instant scroll instead of smooth. 
@@ -51,7 +56,8 @@ function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: st
     return mappedProducts.filter((p) => {
       const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             (p.description && p.description.toLowerCase().includes(searchQuery.toLowerCase()));
-      const matchesCategory = selectedCategory ? categories.find(c => c.slug === selectedCategory)?.id === p.categoryId : true;
+      // selectedCategory is a category key, and p.categoryId is also a key after migration
+      const matchesCategory = selectedCategory ? p.categoryId === selectedCategory : true;
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory, mappedProducts]);
@@ -123,11 +129,11 @@ function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: st
                     </button>
                     {categories.map((c) => (
                       <button 
-                        key={c.id}
-                        onClick={() => handleCategoryChange(c.slug)}
-                        className={`block w-full text-start px-3 py-2 rounded-lg text-sm transition-colors ${selectedCategory === c.slug ? 'bg-primary/10 text-primary font-medium' : 'text-dark hover:bg-gray-50'}`}
+                        key={c.key}
+                        onClick={() => handleCategoryChange(c.key)}
+                        className={`block w-full text-start px-3 py-2 rounded-lg text-sm transition-colors ${selectedCategory === c.key ? 'bg-primary/10 text-primary font-medium' : 'text-dark hover:bg-gray-50'}`}
                       >
-                        {c.name}
+                        {lang === 'ar' && c.name_ar ? c.name_ar : c.name_en}
                       </button>
                     ))}
                   </div>
@@ -200,7 +206,7 @@ function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: st
                       <ProductCard 
                         key={product.id} 
                         product={product} 
-                        category={categories.find(c => c.id === product.categoryId)} 
+                        category={categories.find(c => c.key === product.categoryId)} 
                         lang={lang}
                       />
                     ))}
@@ -275,10 +281,17 @@ function CatalogueContent({ dict, lang, initialProducts }: { dict: any, lang: st
   );
 }
 
-export default function CatalogueClient({ dict, lang, initialProducts }: { dict: any, lang: string, initialProducts: any[] }) {
+export default function CatalogueClient({ dict, lang, initialProducts, categories }: {
+  dict: any;
+  lang: string;
+  initialProducts: any[];
+  categories: Category[];
+}) {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-      <CatalogueContent dict={dict} lang={lang} initialProducts={initialProducts} />
+      <CatalogueContent dict={dict} lang={lang} initialProducts={initialProducts} categories={categories} />
     </Suspense>
   );
 }
+
+

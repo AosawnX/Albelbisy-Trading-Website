@@ -1,5 +1,4 @@
 import { getSupabaseAdmin } from "@/utils/supabase";
-import { categories } from "@/data/products";
 import { updateProduct } from "@/actions/products";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,11 +7,10 @@ import { notFound } from "next/navigation";
 
 export default async function EditProductPage({ params }: { params: { id: string } }) {
   const supabase = getSupabaseAdmin();
-  const { data: product } = await supabase
-    .from("products")
-    .select("*")
-    .eq("id", params.id)
-    .single();
+  const [{ data: product }, { data: categories }] = await Promise.all([
+    supabase.from("products").select("*").eq("id", params.id).single(),
+    supabase.from("categories").select("*").order("created_at", { ascending: true }),
+  ]);
 
   if (!product) notFound();
 
@@ -74,8 +72,8 @@ export default async function EditProductPage({ params }: { params: { id: string
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1E3799]/30 focus:border-[#1E3799] transition-all outline-none text-sm bg-white"
             >
               <option value="">Select a category...</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>{c.name}</option>
+              {(categories ?? []).map((c) => (
+                <option key={c.key} value={c.key}>{c.name_en}</option>
               ))}
             </select>
           </div>

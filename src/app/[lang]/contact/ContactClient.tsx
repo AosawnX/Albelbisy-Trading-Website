@@ -4,8 +4,9 @@ import { useSearchParams } from "next/navigation";
 import QueryForm from "@/components/QueryForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Suspense, useState } from "react";
+import type { Category } from "@/data/products";
 
-function ContactContent({ dict, queryDict }: { dict: any, queryDict: any }) {
+function ContactContent({ dict, queryDict, lang, categories }: { dict: any, queryDict: any, lang: string, categories: Category[] }) {
   const searchParams = useSearchParams();
   const productId = searchParams.get("product");
   const [activeMap, setActiveMap] = useState<"riyadh" | "buraydah">("riyadh");
@@ -31,7 +32,7 @@ function ContactContent({ dict, queryDict }: { dict: any, queryDict: any }) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <QueryForm dict={queryDict} />
+            <QueryForm dict={queryDict} categories={categories} lang={lang} />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-20">
@@ -162,10 +163,10 @@ function ContactContent({ dict, queryDict }: { dict: any, queryDict: any }) {
   );
 }
 
-export default function ContactClient({ dict, queryDict }: { dict: any, queryDict: any }) {
+export default function ContactClient({ dict, queryDict, lang, categories }: { dict: any, queryDict: any, lang: string, categories: Category[] }) {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-      <ContactContent dict={dict} queryDict={queryDict} />
+      <ContactContent dict={dict} queryDict={queryDict} lang={lang} categories={categories} />
     </Suspense>
   );
 }

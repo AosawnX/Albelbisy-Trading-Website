@@ -1,6 +1,6 @@
 import { getSupabaseAdmin } from "@/utils/supabase";
 import Link from "next/link";
-import { Package, Plus, ArrowRight } from "lucide-react";
+import { Package, Plus, ArrowRight, Tags } from "lucide-react";
 
 export default async function AdminDashboardPage() {
   const supabase = getSupabaseAdmin();
@@ -33,7 +33,7 @@ export default async function AdminDashboardPage() {
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex items-center gap-5">
           <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0">
-            <span className="text-2xl font-bold text-[#D4AF37]">{categoryCount ?? 0}</span>
+            <Tags size={22} className="text-[#D4AF37]" />
           </div>
           <div>
             <p className="text-3xl font-bold text-gray-900">{categoryCount ?? 0}</p>

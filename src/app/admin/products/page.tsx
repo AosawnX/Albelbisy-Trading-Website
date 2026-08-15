@@ -1,8 +1,8 @@
 import { getSupabaseAdmin } from "@/utils/supabase";
 import Link from "next/link";
 import Image from "next/image";
-import { Plus, Trash2, Pencil, Package } from "lucide-react";
-import { deleteProduct } from "@/actions/products";
+import { Plus, Pencil, Package } from "lucide-react";
+import ProductDeleteButton from "@/components/admin/ProductDeleteButton";
 
 export default async function AdminProductsPage() {
   const supabase = getSupabaseAdmin();
@@ -89,19 +89,7 @@ export default async function AdminProductsPage() {
                         >
                           <Pencil size={15} />
                         </Link>
-                        {/* Delete */}
-                        <form action={async () => {
-                          "use server";
-                          await deleteProduct(product.id);
-                        }}>
-                          <button
-                            type="submit"
-                            className="p-2 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
-                            title="Delete product"
-                          >
-                            <Trash2 size={15} />
-                          </button>
-                        </form>
+                        <ProductDeleteButton productId={product.id} productName={product.name_en} />
                       </div>
                     </td>
                   </tr>

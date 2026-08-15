@@ -89,11 +89,16 @@ export async function deleteProduct(id: string) {
   const supabase = getSupabaseAdmin();
   const { error } = await supabase.from("products").delete().eq("id", id);
   
-  if (error) throw new Error("Failed to delete product");
+  if (error) {
+    console.error("DB Error:", error);
+    return { error: "Failed to delete product" };
+  }
   
   revalidatePath("/en/catalogue");
   revalidatePath("/ar/catalogue");
   revalidatePath("/admin/products");
+  
+  return {};
 }
 
 export async function updateProduct(id: string, formData: FormData) {

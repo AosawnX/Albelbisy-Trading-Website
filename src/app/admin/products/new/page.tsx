@@ -2,6 +2,7 @@ import { addProduct } from "@/actions/products";
 import { getSupabaseAdmin } from "@/utils/supabase";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default async function NewProductPage() {
   const supabase = getSupabaseAdmin();
@@ -96,13 +97,7 @@ export default async function NewProductPage() {
           {/* Image */}
           <div>
             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Product Image</h2>
-            <input
-              type="file"
-              name="image"
-              accept="image/*"
-              className="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#1E3799]/10 file:text-[#1E3799] hover:file:bg-[#1E3799]/20 transition-colors cursor-pointer"
-            />
-            <p className="text-xs text-gray-400 mt-2">Accepted: PNG, JPG, AVIF, SVG — max 30 MB</p>
+            <ImageUploadField name="image" />
           </div>
 
           {/* Actions */}

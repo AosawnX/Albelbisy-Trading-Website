@@ -1,9 +1,9 @@
 import { getSupabaseAdmin } from "@/utils/supabase";
 import { updateProduct } from "@/actions/products";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default async function EditProductPage({ params }: { params: { id: string } }) {
   const supabase = getSupabaseAdmin();
@@ -107,30 +107,7 @@ export default async function EditProductPage({ params }: { params: { id: string
           {/* Image */}
           <div>
             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Product Image</h2>
-            <div className="flex items-start gap-6">
-              {/* Current image preview */}
-              {product.image_url && (
-                <div className="w-24 h-24 rounded-xl border border-gray-100 relative overflow-hidden flex-shrink-0 bg-gray-50">
-                  <Image
-                    src={product.image_url}
-                    alt={product.name_en}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div className="flex-1">
-                <label className="block text-sm text-gray-500 mb-2">
-                  {product.image_url ? "Upload a new image to replace the current one" : "Upload an image"}
-                </label>
-                <input
-                  type="file"
-                  name="image"
-                  accept="image/*"
-                  className="w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#1E3799]/10 file:text-[#1E3799] hover:file:bg-[#1E3799]/20 transition-colors cursor-pointer"
-                />
-              </div>
-            </div>
+            <ImageUploadField name="image" defaultImageUrl={product.image_url} />
           </div>
 
           {/* Actions */}

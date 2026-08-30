@@ -23,6 +23,7 @@ export default function Navbar({ dict, lang }: { dict: any, lang: string }) {
     { name: dict.home, href: `/${lang}` },
     { name: dict.products, href: `/${lang}/catalogue` },
     { name: dict.about, href: `/${lang}/about` },
+    { name: dict.projects, href: `/${lang}/projects` },
     { name: dict.contact, href: `/${lang}/contact` },
   ];
 
@@ -123,7 +124,7 @@ export default function Navbar({ dict, lang }: { dict: any, lang: string }) {
       {/* Mobile Drawer */}
       <div
         className={`md:hidden absolute top-full start-0 w-full bg-white shadow-lg transition-all duration-300 overflow-hidden ${
-          mobileMenuOpen ? "max-h-64 border-t" : "max-h-0"
+          mobileMenuOpen ? "max-h-80 border-t" : "max-h-0"
         }`}
       >
         <div className="px-4 py-4 space-y-4 flex flex-col">

@@ -34,6 +34,7 @@ export default function Footer({ dict, lang }: { dict: any, lang: string }) {
               <li><Link href={`/${lang}`} className="text-muted hover:text-white transition-colors">{dict.quickLinks_home || "Home"}</Link></li>
               <li><Link href={`/${lang}/catalogue`} className="text-muted hover:text-white transition-colors">{dict.quickLinks_catalogue || "Catalogue"}</Link></li>
               <li><Link href={`/${lang}/about`} className="text-muted hover:text-white transition-colors">{dict.quickLinks_about || "About Us"}</Link></li>
+              <li><Link href={`/${lang}/projects`} className="text-muted hover:text-white transition-colors">{dict.quickLinks_projects || "Projects"}</Link></li>
               <li><Link href={`/${lang}/contact`} className="text-muted hover:text-white transition-colors">{dict.quickLinks_contact || "Contact"}</Link></li>
             </ul>
           </div>

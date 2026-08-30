@@ -4,6 +4,7 @@
     "products": "Products",
     "about": "About",
     "contact": "Contact",
+    "projects": "Projects",
     "requestQuote": "Request a Quote"
   },
   "footer": {
@@ -17,7 +18,12 @@
     "buraydahBranch": "Buraydah Branch",
     "riyadhAddress": "Al Kharj Rd, Al Sina'iyah, Riyadh 12843",
     "buraydahAddress": "Al Arbaeen An Naziyah, Buraydah 52359",
-    "rights": "Albelbisy Trading. All rights reserved."
+    "rights": "Albelbisy Trading. All rights reserved.",
+    "quickLinks_home": "Home",
+    "quickLinks_catalogue": "Catalogue",
+    "quickLinks_about": "About Us",
+    "quickLinks_projects": "Projects",
+    "quickLinks_contact": "Contact"
   },
   "contactSidebar": {
     "title": "Get in Touch",
@@ -164,5 +170,78 @@
     "successMsg": "We'll be in touch within 24 hours.",
     "errorMsg": "Something went wrong. Please try again or WhatsApp us directly.",
     "otherCountry": "Other (Custom)"
+  },
+  "projects": {
+    "title": "Projects",
+    "home": "Home",
+    "currentPower": {
+      "tag": "EV charging infrastructure",
+      "cardTitle": "Current Power",
+      "cardBlurb": "AlBelbisy is Current Power's build partner on a Kingdom-wide EV charging rollout; AC and DC, home to ultra-fast, expanding city by city.",
+      "location": "Riyadh, KSA",
+      "sector": "EPC + CPO",
+      "modalEyebrow": "Partner project",
+      "aboutLabel": "About",
+      "aboutP1": "Current Power is an international supplier of EV-charging solutions for individuals and businesses across Saudi Arabia and the wider Gulf. The company runs charging infrastructure as a one-stop shop, from consult and design through supply, contracting, cabling, installation, charge-point operation and maintenance in support of Saudi Vision 2030's push toward sustainable transport and Net-Zero emissions.",
+      "aboutP2": "AlBelbisy is Current Power's build partner, supplying the metals, cabling materials and precision hardware behind their charger rollout — and working alongside their team as the network expands city by city across the Kingdom.",
+      "stats": [
+        { "value": 1000, "suffix": " kW", "label": "Peak DC output" },
+        { "value": 5, "suffix": "", "label": "OEM approvals" },
+        { "value": 7, "suffix": "", "label": "Stages, one-stop shop" },
+        { "value": 6, "suffix": "", "label": "Manufacturing origins" }
+      ],
+      "visionMissionLabel": "Vision & mission",
+      "visionTitle": "Vision",
+      "vision": "One of the companies leading Saudi Arabia's Net-Zero transition, through clean-energy solutions.",
+      "missionTitle": "Mission",
+      "mission": "The Kingdom's most complete EV-charging one-stop shop, for individuals and businesses alike.",
+      "serviceModelLabel": "Service model",
+      "services": [
+        { "n": "01", "t": "Consult & Design", "d": "Site assessment and charging-solution planning." },
+        { "n": "02", "t": "Supply", "d": "High-quality chargers and accessories, sourced globally." },
+        { "n": "03", "t": "Contract", "d": "Full EV-charger infrastructure build-out." },
+        { "n": "04", "t": "Cable", "d": "Electrical cabling and circuit-breaker installation." },
+        { "n": "05", "t": "Install", "d": "Precision mounting and commissioning." },
+        { "n": "06", "t": "Operate", "d": "Charge-point operation via CPMS and mobile apps." },
+        { "n": "07", "t": "Maintain", "d": "After-sales support and emergency response." }
+      ],
+      "productRangeLabel": "Product range",
+      "outputRange": "Output range:",
+      "tiers": {
+        "home": {
+          "label": "AC · Home & Office",
+          "range": "3.7–22 kW",
+          "items": [
+            { "name": "Teltonika Energy EVC2", "spec": "up to 22 kW · Wi-Fi / 4G / BT" },
+            { "name": "alfanar AlfaCharge Smart", "spec": "3.7–22 kW · Saudi-made" },
+            { "name": "Wallbox Pulsar Max", "spec": "22 kW · Lucid-approved" },
+            { "name": "Schneider EVlink Smart", "spec": "22 kW · Green Premium label" },
+            { "name": "CITA Smart 7 / 22 ECO", "spec": "7 or 22 kW · IP65 / IK10" },
+            { "name": "Volt Charge Basic", "spec": "7 / 22 kW · Saudi-made" }
+          ]
+        },
+        "commercial": {
+          "label": "AC · Commercial",
+          "range": "22–44 kW",
+          "items": [
+            { "name": "Teltonika Energy EVC2", "spec": "22 kW · semi-public sites" },
+            { "name": "Wallbox Pulsar Pro", "spec": "22 kW · 5 finishes" },
+            { "name": "Schneider EVlink Parking", "spec": "2 outlets · metal enclosure" },
+            { "name": "CITA Dual 44 kW GEN 3", "spec": "dual-vehicle · pedestal-mount" }
+          ]
+        },
+        "dc": {
+          "label": "DC · Ultra-Fast",
+          "range": "60–1000 kW",
+          "items": [
+            { "name": "Alpitronic HYC 1000", "spec": "1000 kW · 8 EVs at once" },
+            { "name": "Alpitronic HYC 400 / 200", "spec": "up to 400 kW · modular" },
+            { "name": "Wallbox Supernova 2", "spec": "220 kW · ~25-min top-up" },
+            { "name": "Alfa Charge DC — Premium", "spec": "60–400 kW · dual CCS2" },
+            { "name": "CITA Smart / Eco / Pro DC", "spec": "30–480 kW range" }
+          ]
+        }
+      }
+    }
   }
 }
